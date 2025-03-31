@@ -10,5 +10,5 @@ Then, run `poetry install` and package will be installed.
 
 
 ```python
-from klctk.aiogram import Filter as F
+from klctk.aiogram import F
 ```
