@@ -26,3 +26,16 @@ def import_webviews(path: Optional[str] = "web/*/**/webviews.py") -> List[Module
         modules.append(importlib.import_module(escape_module(m)))
 
     return modules
+
+def export_tortoise_models(path: Optional[str] = "domain/**/*/model.py") -> List[str]:
+    """
+    Imports all models by searching recursively for `model.py` files in the
+    specified directory structure and escaping their module paths. Returns the
+    list of models.
+    """
+
+    models = ["aerich.models"]
+    for m in glob.iglob(path, recursive=True):
+        models.append(escape_module(m))
+
+    return models
